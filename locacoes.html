@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Locações</title>
+    <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+    <script src="ajaxLocacoes.js"></script>
+    <script src="selectClientes.js"></script>
+    <script src="selectImoveis.js"></script>
+</head>
+
+<body>
+    <header>
+        <nav class="flex items-center justify-between flex-wrap bg-blue-500 p-6">
+            <div class="flex items-center flex-shrink-0 text-white mr-6">
+                <a href="index.html"><img src="http://www.felicitaimoveis.com/assets/images/logo-footer.png" width="129" height="48"></a>
+            </div>
+            <div class="w-full block flex-grow lg:flex lg:items-center lg:w-auto">
+                <div class="text-xl lg:flex-grow">
+                    <a href="clientes.html"
+                        class="block mt-4 lg:inline-block lg:mt-0 text-teal-200 hover:text-white mr-4">
+                        Clientes
+                    </a>
+                    <a href="imoveis.html"
+                        class="block mt-4 lg:inline-block lg:mt-0 text-teal-200 hover:text-white mr-4">
+                        Imóveis
+                    </a>
+                    <a href="locacoes.html" class="block mt-4 lg:inline-block lg:mt-0 text-teal-200 hover:text-white">
+                        Locações
+                    </a>
+                </div>
+                <div>
+                    <a href="#"
+                        class="inline-block text-lg px-4 py-2 leading-none border rounded text-white border-white hover:border-transparent hover:text-teal-500 hover:bg-white mt-4 lg:mt-0">LogIn</a>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <h3>Locações</h3>
+    <button type="button" id="cadastrar">Cadastrar</button>
+    <button type="button" id="listar">Listar</button>
+
+    <div id="locacao-form" hidden>
+        <form action="locacoes.php" method="POST">
+            <br>
+            <label for="data-inicio">Data de início:</label>
+            <input type="datetime-local" name="data-inicio" id="data-inicio">
+            <br>
+            <br>
+            <label for="data-final">Data de encerramento:</label>
+            <input type="datetime-local" name="data-final" id="data-final">
+            <br>
+            <br>
+            <label for="cliente">Cliente:</label>
+            <select id="select-cliente" name="cliente">
+                <option value="">Selecione o cliente</option>
+            </select>
+            <br>
+            <br>
+            <label for="imovel">Imóvel:</label>
+            <select id="select-imovel" name="imovel">
+                <option value="">Selecione o imóvel</option>
+            </select>
+            <br>
+            <br>
+            <button type="submit" name="enviar">Enviar</button>
+        </form>
+    </div>
+
+    <div id="locacao-list" hidden>
+        <br>
+        <table border="1" width="500">
+            <thead>
+                <tr>
+                    <th>Data de início</th>
+                    <th>Data de encerramento</th>
+                    <th>Cliente</th>
+                    <th>Imóvel</th>
+                </tr>
+            </thead>
+            <tbody id="tabela">
+            </tbody>
+        </table>
+    </div>
+
+    <script>
+        $("#cadastrar").click(function () {
+            $("#locacao-form").removeAttr("hidden");
+            $("#locacao-list").attr("hidden", "");
+        });
+
+        $("#listar").click(function () {
+            $("#locacao-form").attr("hidden", "");
+            $("#locacao-list").removeAttr("hidden");
+        });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Imóveis</title>
+    <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+    <script src="ajaxImoveis.js"></script>
+</head>
+
+<body>
+    <header>
+        <nav class="flex items-center justify-between flex-wrap bg-blue-500 p-6">
+            <div class="flex items-center flex-shrink-0 text-white mr-6">
+                <a href="index.html"><img src="http://www.felicitaimoveis.com/assets/images/logo-footer.png" width="129" height="48"></a>
+            </div>
+            <div class="w-full block flex-grow lg:flex lg:items-center lg:w-auto">
+                <div class="text-xl lg:flex-grow">
+                    <a href="clientes.html"
+                        class="block mt-4 lg:inline-block lg:mt-0 text-teal-200 hover:text-white mr-4">
+                        Clientes
+                    </a>
+                    <a href="imoveis.html"
+                        class="block mt-4 lg:inline-block lg:mt-0 text-teal-200 hover:text-white mr-4">
+                        Imóveis
+                    </a>
+                    <a href="locacoes.html" class="block mt-4 lg:inline-block lg:mt-0 text-teal-200 hover:text-white">
+                        Locações
+                    </a>
+                </div>
+                <div>
+                    <a href="#"
+                        class="inline-block text-lg px-4 py-2 leading-none border rounded text-white border-white hover:border-transparent hover:text-teal-500 hover:bg-white mt-4 lg:mt-0">LogIn</a>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <h3>Imóveis</h3>
+    <button type="button" id="cadastrar">Cadastrar</button>
+    <button type="button" id="listar">Listar</button>
+
+    <div id="imovel-form" hidden>
+        <form action="imoveis.php" method="POST">
+            <br>
+            <label for="endereco">Endereço:</label>
+            <input type="text" name="endereco" id="endereco">
+            <br>
+            <br>
+            <label for="valor">Valor da locação:</label>
+            <input type="text" name="valor" id="valor">
+            <br>
+            <br>
+            <label for="status">Status:</label>
+            <select name="status" id="status">
+                <option value="Locado">Locado</option>
+                <option value="Disponivel">Disponível</option>
+            </select>
+            <br>
+            <br>
+            <button type="submit" name="enviar">Enviar</button>
+        </form>
+    </div>
+
+    <div id="imovel-list" hidden>
+        <br>
+        <table border="1" width="500">
+            <thead>
+                <tr>
+                    <th>Endereço</th>
+                    <th>Valor</th>
+                    <th>Status</th>
+                </tr>
+            </thead>
+            <tbody id="tabela">
+            </tbody>
+        </table>
+    </div>
+
+    <script>
+        $("#cadastrar").click(function () {
+            $("#imovel-form").removeAttr("hidden");
+            $("#imovel-list").attr("hidden", "");
+        });
+
+        $("#listar").click(function () {
+            $("#imovel-form").attr("hidden", "");
+            $("#imovel-list").removeAttr("hidden");
+        });
+    </script>
+
+</body>
+
+</html>

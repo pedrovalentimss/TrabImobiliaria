@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Clientes</title>
+    <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+    <script src="ajaxClientes.js"></script>
+</head>
+
+<body>
+    <header>
+        <nav class="flex items-center justify-between flex-wrap bg-blue-500 p-6">
+            <div class="flex items-center flex-shrink-0 text-white mr-6">
+                <a href="index.html"><img src="http://www.felicitaimoveis.com/assets/images/logo-footer.png" width="129"
+                        height="48"></a>
+            </div>
+            <div class="w-full block flex-grow lg:flex lg:items-center lg:w-auto">
+                <div class="text-xl lg:flex-grow">
+                    <a href="clientes.html"
+                        class="block mt-4 lg:inline-block lg:mt-0 text-teal-200 hover:text-white mr-4">
+                        Clientes
+                    </a>
+                    <a href="imoveis.html"
+                        class="block mt-4 lg:inline-block lg:mt-0 text-teal-200 hover:text-white mr-4">
+                        Imóveis
+                    </a>
+                    <a href="locacoes.html" class="block mt-4 lg:inline-block lg:mt-0 text-teal-200 hover:text-white">
+                        Locações
+                    </a>
+                </div>
+                <div>
+                    <a href="#"
+                        class="inline-block text-lg px-4 py-2 leading-none border rounded text-white border-white hover:border-transparent hover:text-teal-500 hover:bg-white mt-4 lg:mt-0">LogIn</a>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <div class="container mx-auto">
+        <h3>Clientes</h3>
+        <button type="button" id="cadastrar" name="cadastrar">Cadastrar</button>
+        <button type="button" id="listar" name="listar">Listar</button>
+
+        <div id="cliente-form" hidden>
+            <form action="clientes.php" method="POST">
+                <div class="flex flex-wrap -mx-3 mb-6">
+                    <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
+                        <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
+                            for="grid-first-name">
+                            Nome:
+                        </label>
+                        <input name="nome" id="nome"
+                            class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white"
+                            type="text" placeholder="Jane">
+                    </div>
+                    <div class="w-full md:w-1/2 px-3">
+                        <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
+                            for="grid-last-name">
+                            CPF:
+                        </label>
+                        <input name="cpf" id="cpf"
+                            class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
+                            type="text" placeholder="Doe">
+                    </div>
+                </div>
+                <div class="flex flex-wrap -mx-3 mb-6">
+                    <div class="w-full px-3">
+                        <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
+                            for="grid-password">
+                            Telefone:
+                        </label>
+                        <input name="fone" id="fone"
+                            class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
+                            type="text" placeholder="(55) 999999999">
+                    </div>
+                </div>
+                <button type="submit" name="enviar"
+                    class="shadow bg-blue-600 hover:bg-blue-400 focus:shadow-outline focus:outline-none text-white font-bold py-2 px-4 rounded">Enviar</button>
+            </form>
+        </div>
+
+        <div id="cliente-list" hidden>
+            <br>
+            <table border="1" width="500">
+                <thead>
+                    <tr>
+                        <th>Nome</th>
+                        <th>CPF</th>
+                        <th>Telefone</th>
+                    </tr>
+                </thead>
+                <tbody id="tabela">
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <script>
+        $("#cadastrar").click(function () {
+            $("#cliente-form").removeAttr("hidden");
+            $("#cliente-list").attr("hidden", "");
+        });
+
+        $("#listar").click(function () {
+            $("#cliente-form").attr("hidden", "");
+            $("#cliente-list").removeAttr("hidden");
+        });
+    </script>
+
+</body>
+
+</html>

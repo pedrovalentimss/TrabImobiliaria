@@ -7,7 +7,7 @@ $(document).ready(function(){
 		success: function(dados){
 			for(var i=0;dados.length>i;i++){
 				//Adicionando registros retornados na tabela
-				$('#tabela').append('<tr><td>'+dados[i].dt_inicio+'</td><td>'+dados[i].dt_final+'</td><td>'+dados[i].cliente+'</td><td>'+dados[i].imovel+'</td></tr>');
+				$('#tabela').append('<tr><td class="border px-4 py-2">'+dados[i].dt_inicio+'</td><td class="border px-4 py-2">'+dados[i].dt_final+'</td><td class="border px-4 py-2">'+dados[i].cliente+'</td><td class="border px-4 py-2">'+dados[i].imovel+'</td></tr>');
 			}
 		}
 	});

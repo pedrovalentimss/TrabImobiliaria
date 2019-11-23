@@ -15,12 +15,13 @@
 
 <body>
     <header>
-        <nav class="flex items-center justify-between flex-wrap bg-blue-500 p-6">
+        <nav class="flex items-center justify-between flex-wrap bg-blue-500 p-2">
             <div class="flex items-center flex-shrink-0 text-white mr-6">
-                <a href="index.html"><img src="http://www.felicitaimoveis.com/assets/images/logo-footer.png" width="129" height="48"></a>
+                <a href="index.html"><img src="http://www.felicitaimoveis.com/assets/images/logo-footer.png" width="129"
+                        height="48"></a>
             </div>
             <div class="w-full block flex-grow lg:flex lg:items-center lg:w-auto">
-                <div class="text-xl lg:flex-grow">
+                <div class="text-lg lg:flex-grow">
                     <a href="clientes.html"
                         class="block mt-4 lg:inline-block lg:mt-0 text-teal-200 hover:text-white mr-4">
                         Clientes
@@ -29,7 +30,7 @@
                         class="block mt-4 lg:inline-block lg:mt-0 text-teal-200 hover:text-white mr-4">
                         Imóveis
                     </a>
-                    <a href="locacoes.html" class="block mt-4 lg:inline-block lg:mt-0 text-teal-200 hover:text-white">
+                    <a href="#" class="block mt-4 lg:inline-block lg:mt-0 text-teal-200 underline hover:text-white">
                         Locações
                     </a>
                 </div>
@@ -40,53 +41,98 @@
             </div>
         </nav>
     </header>
+    <section>
+        <div class="container mx-auto">
+            <button type="button" id="cadastrar" name="cadastrar"
+                class="m-4 bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded">Cadastrar</button>
+            <button type="button" id="listar" name="listar"
+                class="m-4 bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded">Listar</button>
 
-    <h3>Locações</h3>
-    <button type="button" id="cadastrar">Cadastrar</button>
-    <button type="button" id="listar">Listar</button>
+            <div id="locacao-form" hidden>
+                <form action="locacoes.php" method="POST">
+                    <div class="flex flex-wrap -mx-3 mb-6">
+                        <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
+                            <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
+                                for="data-inicio">
+                                Data de início:
+                            </label>
+                            <input name="data-inicio" id="data-inicio"
+                                class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white"
+                                type="datetime-local" placeholder="Jane Doe">
+                        </div>
+                        <div class="w-full md:w-1/2 px-3">
+                            <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
+                                for="data-final">
+                                Data de encerramento:
+                            </label>
+                            <input name="data-final" id="data-final"
+                                class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
+                                type="datetime-local" placeholder="231.002.999-00">
+                        </div>
+                    </div>
+                    <div class="flex flex-wrap -mx-3 mb-6">
+                        <div class="w-full md:w-1/3 px-3 mb-6 md:mb-0">
+                            <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
+                                for="fone">
+                                Cliente:
+                            </label>
+                            <div class="relative">
+                                <select id="select-cliente" name="cliente"
+                                    class="block appearance-none w-full bg-gray-200 border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500">
+                                    <option value="">Selecione o imóvel</option>
+                                </select>
+                                <div
+                                    class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
+                                    <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg"
+                                        viewBox="0 0 20 20">
+                                        <path
+                                            d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z" />
+                                    </svg>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="w-full md:w-1/3 px-3 mb-6 md:mb-0">
+                            <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
+                                for="fone">
+                                Imóvel:
+                            </label>
+                            <div class="relative">
+                                <select id="select-imovel" name="imovel"
+                                    class="block appearance-none w-full bg-gray-200 border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500">
+                                    <option value="">Selecione o imóvel</option>
+                                </select>
+                                <div
+                                    class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
+                                    <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg"
+                                        viewBox="0 0 20 20">
+                                        <path
+                                            d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z" />
+                                    </svg>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <button type="submit" name="enviar"
+                        class="shadow bg-blue-600 hover:bg-blue-400 focus:shadow-outline focus:outline-none text-white font-bold py-2 px-4 rounded">Enviar</button>
+                </form>
+            </div>
 
-    <div id="locacao-form" hidden>
-        <form action="locacoes.php" method="POST">
-            <br>
-            <label for="data-inicio">Data de início:</label>
-            <input type="datetime-local" name="data-inicio" id="data-inicio">
-            <br>
-            <br>
-            <label for="data-final">Data de encerramento:</label>
-            <input type="datetime-local" name="data-final" id="data-final">
-            <br>
-            <br>
-            <label for="cliente">Cliente:</label>
-            <select id="select-cliente" name="cliente">
-                <option value="">Selecione o cliente</option>
-            </select>
-            <br>
-            <br>
-            <label for="imovel">Imóvel:</label>
-            <select id="select-imovel" name="imovel">
-                <option value="">Selecione o imóvel</option>
-            </select>
-            <br>
-            <br>
-            <button type="submit" name="enviar">Enviar</button>
-        </form>
-    </div>
-
-    <div id="locacao-list" hidden>
-        <br>
-        <table border="1" width="500">
-            <thead>
-                <tr>
-                    <th>Data de início</th>
-                    <th>Data de encerramento</th>
-                    <th>Cliente</th>
-                    <th>Imóvel</th>
-                </tr>
-            </thead>
-            <tbody id="tabela">
-            </tbody>
-        </table>
-    </div>
+            <div id="locacao-list" hidden>
+                <br>
+                <table class="table-fixed w-full">
+                    <thead>
+                        <tr>
+                            <th class="uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">Data de início</th>
+                            <th class="uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">Data de encerramento</th>
+                            <th class="uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">Cliente</th>
+                            <th class="uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">Imóvel</th>
+                        </tr>
+                    </thead>
+                    <tbody id="tabela" class="bg-gray-200"></tbody>
+                </table>
+            </div>
+        </div>
+    </section>
 
     <script>
         $("#cadastrar").click(function () {

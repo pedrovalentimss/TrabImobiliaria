@@ -7,7 +7,7 @@ $(document).ready(function(){
 		success: function(dados){
 			for(var i=0;dados.length>i;i++){
 				//Adicionando registros retornados na tabela
-				$('#tabela').append('<tr><td>'+dados[i].endereco+'</td><td>'+dados[i].valor+'</td><td>'+dados[i].status+'</td></tr>');
+				$('#tabela').append('<tr><td class="border px-4 py-2">'+dados[i].endereco+'</td><td class="border px-4 py-2">'+dados[i].valor+'</td><td class="border px-4 py-2">'+dados[i].status+'</td></tr>');
 			}
 		}
 	});

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 01-Nov-2019 às 23:07
+-- Tempo de geração: 23-Nov-2019 às 02:36
 -- Versão do servidor: 10.4.8-MariaDB
 -- versão do PHP: 7.3.11
 
@@ -57,6 +57,39 @@ CREATE TABLE `imoveis` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
+-- Extraindo dados da tabela `imoveis`
+--
+
+INSERT INTO `imoveis` (`endereco`, `valor`, `status`, `id`) VALUES
+('Rua Quartzo', 100000, 'Disponivel', 1),
+('Rua Legal', 100, '', 2),
+('Rua Tri', 100000, '', 3);
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `locacoes`
+--
+
+CREATE TABLE `locacoes` (
+  `dt_inicio` datetime NOT NULL,
+  `dt_final` datetime NOT NULL,
+  `cliente` varchar(40) NOT NULL,
+  `imovel` varchar(40) NOT NULL,
+  `id` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Extraindo dados da tabela `locacoes`
+--
+
+INSERT INTO `locacoes` (`dt_inicio`, `dt_final`, `cliente`, `imovel`, `id`) VALUES
+('0000-00-00 00:00:00', '0000-00-00 00:00:00', 'Pedro', '', 1),
+('0000-00-00 00:00:00', '0000-00-00 00:00:00', 'Pedro', 'Rua Quartzo', 2),
+('2019-11-01 11:00:00', '2019-11-22 11:00:00', 'Pedro', 'Rua Quartzo', 3),
+('2019-11-12 22:00:00', '2019-11-23 03:03:00', 'Pedro', 'Rua Quartzo', 4);
+
+--
 -- Índices para tabelas despejadas
 --
 
@@ -73,6 +106,12 @@ ALTER TABLE `imoveis`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Índices para tabela `locacoes`
+--
+ALTER TABLE `locacoes`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- AUTO_INCREMENT de tabelas despejadas
 --
 
@@ -86,7 +125,13 @@ ALTER TABLE `clientes`
 -- AUTO_INCREMENT de tabela `imoveis`
 --
 ALTER TABLE `imoveis`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
+-- AUTO_INCREMENT de tabela `locacoes`
+--
+ALTER TABLE `locacoes`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
